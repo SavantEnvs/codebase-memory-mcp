@@ -1,0 +1,11 @@
+project: savantenvs/codebase-memory-mcp
+target: fuzz_cypher
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_cypher/testsuite
+cmds:
+  - cmd: /mayhem/cbm-fuzz
+    env:
+      CBM_FUZZ_TARGET: cypher
+    libfuzzer: true
+    timeout: 10

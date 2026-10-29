@@ -1,0 +1,11 @@
+project: savantenvs/codebase-memory-mcp
+target: fuzz_extract
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_extract/testsuite
+cmds:
+  - cmd: /mayhem/cbm-fuzz
+    env:
+      CBM_FUZZ_TARGET: extract
+    libfuzzer: true
+    timeout: 10
